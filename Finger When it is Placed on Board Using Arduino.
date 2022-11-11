@@ -1,0 +1,37 @@
+Algorithms:
+STEP 1: Start the process. STEP 2: Start Arduino
+1.8.8
+STEP 3: Then enter the coding in arduino software. STEP 4: Compile the
+coding in the arduino software.
+STEP 5: In arduino board, connect VCC to power supply 5v and connect SIG to Electrical signal 
+DT and connect to ground and wing jumper wires.
+STEP 6: Connect the arduino board with USB cable to the system.STEP 7: Select tools Select
+processor board and port.
+STEP 8: Upload the coding to arduino board. Then the output willbe displayed in the serial
+monitor.
+STEP 9: Stop the process.
+
+int Led = 13 ; // define LED Interface
+int buttonpin = 7; // define Metal Touch Sensor Interfaceint val ; // define numeric
+variables val
+void setup ()
+{
+Serial.begin(9600);
+92
+pinMode (Led, OUTPUT) ; // define LED as output interface pinMode (buttonpin, INPUT) ; //
+define metal touch sensor outputinterface
+}
+void loop ()
+{
+val = digitalRead (buttonpin) ;
+//Serial.println(val);
+if (val == 1) // When the metal touch sensor detects a signal, LEDflashes
+{
+digitalWrite (Led, HIGH);Serial.println(val);
+delay(1000);
+}
+else
+{
+digitalWrite(Led,LOW); Serial.println(val); delay(1000);
+}
+}
