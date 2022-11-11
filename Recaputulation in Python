@@ -1,0 +1,24 @@
+Recapitulation of Python.
+a) Write a program to demonstrate working with tuples in python
+Create an empty Tuple in Python
+my_tuple = (); here the variable named my_tuple is the name of the tuple.
+Create a Tuple with Items in Python
+my_tuple = ("me", "my friend", "my brother", "my
+sister");or
+tuple1 = ("python", "tuple", 1952, 2323, 432);
+tuple2 = (1, 2, 3, 4, 5);
+tuple3 = ("a", "b", "c", "d",
+"e");ex:
+# Python Tuple Example
+print("Creating an empty
+tuple...");my_tuple = ();
+print("An empty tuple, my_tuple is created
+successfully.");if not my_tuple:
+print("The tuple, my_tuple, contains no any
+item.");print("Inserting some items to the tuple...");
+my_tuple = ("me", "my friend", "my brother", "my
+sister");print("\nPrinting the tuple...");
+print(my_tuple);
+print("\nNow printing each item in the
+tuple...");for item_in_tuple in my_tuple:
+print(item_in_tuple); 
