@@ -1,0 +1,23 @@
+Algorithms:
+STEP 1: Start the process. STEP 2:
+StartArduino.1.8.8.
+STEP 3: Then enter the coding in Arduino software.
+STEP 4: In Arduino board, connect vcc to power supply 5V and connect do to analog pin A0 and 
+connect gnd to ground gnd using jumper wires.
+STEP 5: Connect the arduino board with the USB cable to the system.
+STEP 6: Select toolsSelect boardArduino Nano gndSelect processor AT mega 823p and
+then select the port.
+STEP 7: Upload the coding to the Arduino board.
+STEP 8: Then the output will be displayed in the serial monitor. STEP 9: Stop the process.
+
+Int ledPin = 13;Int vib=A0; void setup()
+{
+pinMode(ledPin, OUTPUT);
+pinMode(vib, INPUT); //set EP input for measurementSerial.begin(9600); //init serial 9600
+}
+void loop()
+{
+long measurement=pulseIn (vib, HIGH);delayMicroseconds(50);
+88
+Serial.print("VIB:v001:hertz: " ); Serial.println(measurement);
+}
