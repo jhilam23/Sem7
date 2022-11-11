@@ -1,0 +1,94 @@
+Aim: Installation and Configuration of Hadoop.
+Theory:
+Hadoop-1.2.1 Installation Steps for Single-Node Cluster (On Ubuntu 12.04)
+ Download and install VMware Player depending on your Host OS (32 bit or 64 bit
+https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_play
+er/6_0
+ Download the .iso image file of Ubuntu 12.04 LTS (32-bit or 64-bit depending on your
+requirements) http://www.ubuntu.com/download/desktop
+ Install Ubuntu from image in VMware. (For efficient use, configure the Virtual Machine to
+have at least 2GB (4GB preferred) of RAM and at least 2 cores of processor
+JAVA INSTALLATION
+ sudo mkdir -p /usr/local/java
+ cd ~/Downloads
+ sudo cp -r jdk-8-linux-i586.tar.gz /usr/local/java
+ sudo cp -r jre-8-linux-i586.tar.gz /usr/local/java
+ cd /usr/local/java
+ sudo tar xvzf jdk-8-linux-i586.tar.gz
+ sudo tar xvzf jre-8-linux-i586.tar.gz
+ ls a jdk1.8.0 jre1.8.0 jdk-8-linux-i586.tar.gz jre-8-linux-i586.tar.gz
+30
+ sudo gedit /etc/profile
+ JAVA_HOME=/usr/local/java/jdk1.7.0_4
+PATH=$PATH:$HOME/bin:$JAVA_HOME
+/binJRE_HOME=/usr/local/java/jdk1.7.0_45/j
+rePATH=$PATH:$HOME/bin:$JRE_HOME/
+binHADOOP_HOME=/home/hadoop/adoop1.2.1
+PATH=$PATH:$HADOOP_HOME/binexpor
+t JAVA_HOME export JRE_HOME export
+PATH
+ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/local/java/jdk1.8.0/jre/bin/java"
+1
+ sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java/jdk1.8.0/bin/javac" 1
+13.sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/local/java/jdk1.8.0/bin/javaws" 1
+ sudo update-alternatives --set java /usr/local/java/jdk1.8.0/jre/bin/java
+ sudo update-alternatives --set javac /usr/local/java/jdk1.8.0/bin/javac
+ sudo update-alternatives --set javaws /usr/local/java/jdk1.8.0/bin/javaws
+ . /etc/profile
+ java -version
+java version "1.8.0"
+Java(TM) SE Runtime Environment (build 1.8.0-b132)
+Java HotSpot(TM) Client VM (build 25.0-b70, mixed mode)
+HADOOP INSTALLATION
+ open Home
+ create a floder hadoop
+ copy from downloads hadoop-1.2.1.tar.gz to hadoop
+ right click on hadoop-1.2.1.tar.gz and Extract Here
+ cd hadoop/
+31
+ ls -a
+. .. hadoop-1.2.1 hadoop-1.2.1.tar.gz 25. edit the
+file conf/hadoop-env.sh
+# The java implementation to use. Required. export
+JAVA_HOME=/usr/local/java/jdk1.8.0
+26. cd hadoop-1.2.1
+------------------STANDALONE OPERATION----------------
+ mkdir input
+ cp conf/*.xml input
+ bin/hadoop jar hadoop-examples-*.jar grep input output 'dfs[a-z.]+'
+ cat output/*
+----------------PSEUDO DISTRIBUTED OPERATION -------------- //WORDCOUNT
+ conf/core-site.xml:
+<configuration> <property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:9000</value>
+</property>
+</configuration>
+ conf/hdfs-site.xml:
+<configuration> <property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+</configuration>
+32
+ conf/mapred-site.xml:
+<configuration> <property>
+<name>mapred.job.tracker</name>
+<value>localhost:9001</value>
+</property>
+</configuration>
+ ssh localhost
+ ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+ cat ~/.ssh/id_dsa.pub >> ~/.ssh/authorized_keys
+ bin/hadoop namenode -format
+ bin/start-all.sh
+Run the following command to verify that hadoop services are running $ jps
+If everything was successful, you should see following services running
+2583 DataNode
+2970 ResourceManager
+3461 Jps
+3177 NodeManager
+2361 NameNode
+2840 SecondaryNameNode
+Conclusion:
+Thus we have studied how to install and configure hadoop on Ubuntu operating system.
