@@ -1,0 +1,25 @@
+# Python program to display all the prime numbers upto
+n# Setting the intial value with 1
+Starting_value = 1
+# Taking input from the user
+n = int(input("Enter the number: "))
+print("Prime numbers between", Starting_value, "and", n,
+"are:")for num in range(Starting_value, n + 1):
+if num > 1:
+for i in range(2,
+int(num/2)+1):if (num % i)
+== 0:
+75
+break
+else:
+print(num)
+Output : Enter the number: 20
+Prime numbers between 1 and 20
+are:2
+3
+5
+7
+11
+13
+17
+19
