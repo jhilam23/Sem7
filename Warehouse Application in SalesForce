@@ -1,0 +1,63 @@
+Aim: Creating a Warehouse Application in SalesForce.com‘s Force.com.
+Theory:
+Steps to create an application in Force.com by declarative model
+Step 1: Click on Setup Create Objects New custom object
+Label: MySale
+Pular Label: MySales
+Object Name: MySale
+Record Name: MySale Description
+Data Type: Text
+Click on Save.
+Step 2: Under MySale Go to Custom Field and Relationships Click on New Custom Field
+st
+Creating 1 Field:--
+select Data type as Auto Number next
+Enter the details Field Label: PROD_ID Display Format: MYS-{0000}
+   
+Starting Number: 1001 Field Name: PRODID Next Save & New
+Creating 2
+nd Field:--
+select Data type as Date next
+8
+Enter the details
+Field Label: Date of Sale
+Field Name: Date_of_Sale
+Default Value: Today()-1
+
+Next
+
+Save & New
+Creating 3
+rd Field:--
+
+select Data type as Number
+
+next
+    
+Enter the details Field Label: Quantity Sold Length:3 Decimal places:0
+  
+Default Value: Show Formulae Editor:1 Next Save & New
+th
+Creating 4 Field:--
+ 
+select Data type as Currency next
+     
+Enter the details Field Label: Rate Field Name: Rate Length:4 Decimal places:2
+  
+Default Value: 10 Next Save & New
+th
+Creating 5 Field:--
+ 
+select Data type as Currency next
+  
+MySale field Quantity Sold c*Rate c next save.
+Now create an App
+       
+Setup Create App new MyShop Next Select an Image Next Add Object MySales.
+Now create an Tab
+     
+Setup Create Tab New Custom Tab Choose MySales object select tab style save.
+On the top in the tab bar you can see the tab which has been created by you click on the tab you
+can see your object is opened just click on new button and provide the details mentioned.
+Conclusion: In this we have created a MyShop Application on Force.com using
+declarative model.
